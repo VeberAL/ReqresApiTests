@@ -11,7 +11,6 @@ import static io.qameta.allure.Allure.step;
 import static io.restassured.RestAssured.given;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.hamcrest.Matchers.hasItem;
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static reqres.specs.UserSpecs.requestSpec;
 import static reqres.specs.UserSpecs.responseSpecClientStatus400;
 
@@ -35,7 +34,7 @@ public class ApiTests extends TestBase {
                         .spec(responseSpecClientStatus400)
                         .extract().as(UserLoginErrorResponseModel.class));
         step("Проверка ответа о неверном пароле.", () ->
-                assertEquals("Missing password", responseBody.getError()));
+                assertThat(responseBody.getError()).isEqualTo("Missing password"));
     }
 
     @Feature("Тестирование api запроса на наличие email-адреса заданного пользователя.")
