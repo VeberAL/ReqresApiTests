@@ -16,7 +16,7 @@ import static reqres.specs.UserSpecs.requestSpec;
 import static reqres.specs.UserSpecs.responseSpecClientStatus400;
 
 @DisplayName("Проверка api запросов сайта https://reqres.in.")
-public class ApiTests {
+public class ApiTests extends TestBase {
 
     @Feature("Тестирование валидации пользователя при вводе неверного пароля.")
     @Test
